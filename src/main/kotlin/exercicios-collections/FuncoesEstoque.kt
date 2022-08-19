@@ -3,14 +3,28 @@ var estoque = mutableListOf<String>()
 fun adicionarEstoque(){
     print("Digite o item que deseja estocar: ")
     val item = readln()
-    estoque.add(item)
+    if(item.isBlank()){
+        println("Digite um produto válido")
+    }
+    else{
+        estoque.add(item)
+        println("O produto foi cadastradado")
+    }
+
 }
 
 fun removerEstoque(){
+
     print("Digite o item que deseja remover: ")
     val item = readln()
-    estoque.remove(item)
-    println("Produto removido com sucesso")
+    if(estoque.contains(item)){
+        estoque.remove(item)
+        println("Produto removido com sucesso")
+    }
+    else{
+        println("Esse produto não existe no estoque")
+    }
+
 }
 
 fun alterarEstoque(){
