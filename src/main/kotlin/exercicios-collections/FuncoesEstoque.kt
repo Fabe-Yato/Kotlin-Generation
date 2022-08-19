@@ -10,6 +10,7 @@ fun removerEstoque(){
     print("Digite o item que deseja remover: ")
     val item = readln()
     estoque.remove(item)
+    println("Produto removido com sucesso")
 }
 
 fun alterarEstoque(){
@@ -22,6 +23,7 @@ fun alterarEstoque(){
         val index = estoque.indexOf(item)
         println("O index é: $index")
         estoque[index] = novoNome
+        println("Produto alterado com sucesso")
     }
     else{
         println("Não existe esse item no estoque")
@@ -29,11 +31,15 @@ fun alterarEstoque(){
 }
 
 fun exibirEstoque(){
-
+    var codProdutos= 1
     if(estoque.size == 0){
         println("Não existem itens no estoque")
     }
     else{
-        println(estoque)
+       estoque.forEach{
+
+           println("Produto $codProdutos: $it")
+           codProdutos++
+       }
     }
 }
